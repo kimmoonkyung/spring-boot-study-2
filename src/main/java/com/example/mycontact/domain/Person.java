@@ -2,10 +2,7 @@ package com.example.mycontact.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -13,17 +10,14 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
     private String name;
 
-    @NonNull
     private int age;
 
     private String hobby;
@@ -36,22 +30,35 @@ public class Person {
 
     private String job;
 
-    public boolean equals(Object object) {
-        if(object == null){
-            return false;
-        }
-        Person person = (Person) object;
-        if(!person.getName().equals(this.getName())){
-            return false;
-        }
-        if(person.getAge() != this.getAge()){
-            return false;
-        }
-        return true;
-    }
+    private String phoneNumber;
 
-    public int hashCode(){
-        return (name + age).hashCode();
-    }
+    @OneToOne
+    private Block block;
+
+//    private boolean block;
+//
+//    private String blockReason;
+//
+//    private LocalDate blockStartDate;
+//
+//    private LocalDate blockEndDate;
+
+//    public boolean equals(Object object) {
+//        if(object == null){
+//            return false;
+//        }
+//        Person person = (Person) object;
+//        if(!person.getName().equals(this.getName())){
+//            return false;
+//        }
+//        if(person.getAge() != this.getAge()){
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    public int hashCode(){
+//        return (name + age).hashCode();
+//    }
 
 }

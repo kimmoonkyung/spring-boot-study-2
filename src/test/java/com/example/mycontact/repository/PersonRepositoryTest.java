@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class PersonRepositoryTest {
 
@@ -41,7 +39,7 @@ class PersonRepositoryTest {
 
     @Test
     void 생성자_테스트(){
-        Person person = new Person("충내", 39);
+        //Person person = new Person("충내", 39);
     }
 
     @Test
