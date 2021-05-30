@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -56,6 +58,13 @@ class PersonRepositoryTest {
         System.out.println(person.equals(person1));
         System.out.println(person.hashCode());
         System.out.println(person1.hashCode());
+
+        Map<Person, Integer> map = new HashMap<>();
+        map.put(person, person.getAge());
+
+        System.out.println(map);
+        // 가져올 수 없다. null임
+        System.out.println(map.get(person1));
 
     }
 
