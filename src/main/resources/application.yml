@@ -1,3 +1,6 @@
+# application.properties 에서
+# spring.jpa.show-sql=true
+# 로도 할 수 있다.
 spring:
   jpa:
     show-sql: true

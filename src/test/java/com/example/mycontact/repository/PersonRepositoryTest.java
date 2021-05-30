@@ -21,9 +21,13 @@ class PersonRepositoryTest {
         Person person = Person.builder()
                 .name("노충내")
                 .age(38)
+                .bloodType("B형")
+                .hobby("코인")
+                .address("부장책상밑")
+                .job("후론트라라후론트라라후론트라라라라라")
                 .build();
         personRepository.save(person);
-//        System.out.println(personRepository.findAll());
+        System.out.println(personRepository.findAll());
 
         List<Person> people = personRepository.findAll();
 
@@ -32,5 +36,28 @@ class PersonRepositoryTest {
         Assertions.assertEquals(people.get(0).getAge(), 38);
 
     }
+
+    @Test
+    void 생성자_테스트(){
+        Person person = new Person("충내", 39);
+    }
+
+    @Test
+    void 해시코드_이퀄스(){
+        Person person = Person.builder()
+                .name("짐승균")
+                .age(48)
+                .build();
+        Person person1 = Person.builder()
+                .name("짐승균")
+                .age(48)
+                .build();
+
+        System.out.println(person.equals(person1));
+        System.out.println(person.hashCode());
+        System.out.println(person1.hashCode());
+
+    }
+
 
 }
